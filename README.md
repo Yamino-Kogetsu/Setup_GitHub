@@ -41,7 +41,7 @@ If the output show existing keys like `xxxxxxxx`, running this command to export
 gpg --armor --export xxxxxxxx
 ```
 With `xxxxxxxx` is the key.  
-Then go to []  
+Then go to [].  
 If the output show nothing, go to [3. Generate a new GPG key.](#3-generate-a-new-gpg-key)
 
 ### 3. Generate a new GPG key.
@@ -51,9 +51,9 @@ If the output show nothing, go to [3. Generate a new GPG key.](#3-generate-a-new
 ```
 gpg --full-generate-key
 ```
-* At the prompt, specify the kind of key you want, or press Enter to accept the default (I am choosing RSA and RSA).
-* At the prompt, specify the key size you want, or press Enter to accept the default (I am choosing 4096 bits).
-* Enter the length of time the key should be valid. Press Enter to specify the default selection, indicating that the key doesn't expire. Unless you require an expiration date, we recommend accepting this default (I am choosing 0 for lifetime).
+* At the prompt, specify the kind of key you want, or press Enter to accept the default (I am choosing `RSA and RSA`).
+* At the prompt, specify the key size you want, or press Enter to accept the default (I am choosing `4096` bits).
+* Enter the length of time the key should be valid. Press Enter to specify the default selection, indicating that the key doesn't expire. Unless you require an expiration date, we recommend accepting this default (I am choosing `0` for lifetime).
 * Verify that your selections are correct (Press `y`).
 * Enter your user ID information.
   * When asked to enter your email address, ensure that you enter the verified email address for your GitHub account. To keep your email address private, use your GitHub-provided no-reply email address (I choosing using `no-reply` email).
