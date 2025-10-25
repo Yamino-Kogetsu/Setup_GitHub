@@ -2,6 +2,21 @@
 
 A guide to setup new GitHub GPG key on Windows 10/11 for *someone* that have same problem as me...
 
+## Index
+
+1. [Prerequisites.](#prerequisites)
+2. [Step by step.](#step-by-step)
+   1. [Install the programs.](#1-install-the-programs)
+   2. [Check for existing GPG keys.](#2-check-for-existing-gpg-keys)
+   3. [Generate a new GPG key.](#3-generate-a-new-gpg-key)
+   4. [Add a GPG key to your GitHub account.](#4-add-a-gpg-key-to-your-github-account)
+   5. [Tell Git about your signing key.](#5-tell-git-about-your-signing-key)
+   6. [Add tasks to Task Scheduler.](#6-add-tasks-to-task-scheduler)
+3. [P.S Guide](#ps-guide)
+   1. [Associate an email with your GPG key.](#ps1-associate-an-email-with-your-gpg-key)
+   2. [About commit signature verification.](#ps2-about-commit-signature-verification)
+   3. [About sign commits and tags.](#ps3-about-sign-commits-and-tags)
+
 ## Prerequisites
 
 1. Some basic knowledge about installation.
@@ -185,6 +200,8 @@ git config --global gpg.program "C:/Program Files (x86)/GnuPG/bin/gpg.exe"
 
 So this is the end of the guide.  
 The following below will be some small notice.  
+
+## P.S Guide
 
 ### P.S.1. Associate an email with your GPG key.
 
