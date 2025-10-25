@@ -41,7 +41,8 @@ If the output show existing keys like `xxxxxxxx`, running this command to export
 gpg --armor --export xxxxxxxx
 ```
 With `xxxxxxxx` is the key.  
-Then go to [].  
+Please copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.  
+Then go to [4. Add a GPG key to your GitHub account.](#4-add-a-gpg-key-to-your-github-account)  
 If the output show nothing, go to [3. Generate a new GPG key.](#3-generate-a-new-gpg-key)
 
 ### 3. Generate a new GPG key.
@@ -68,4 +69,6 @@ gpg --list-secret-keys --keyid-format=long
 gpg --armor --export xxxxxxxx
 ```
 * Please copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.
-* Then go to [].
+* Then go to [4. Add a GPG key to your GitHub account.](#4-add-a-gpg-key-to-your-github-account)
+
+### 4. Add a GPG key to your GitHub account.
