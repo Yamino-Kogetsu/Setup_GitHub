@@ -183,4 +183,70 @@ git config --global gpg.program "C:/Program Files (x86)/GnuPG/bin/gpg.exe"
             * `If the task is already running, then the following rule applies`: `Do not start a new instance`.
     * Click `OK`.  
 
-So this is the end of the guide.
+So this is the end of the guide.  
+The following below will be some small notice.  
+
+### P.S.1. Associate an email with your GPG key.
+
+Your GPG key must be associated with a verified email that matches your committer identity.  
+It can be your mail or the no-reply GitHub mail.  
+Your mail can be `your-mail@your-mail` or `xxxxxxxx+your-name@users.noreply.github.com`.  
+Can be seen in upper-right corner icon, `Settings` then `Emails`.  
+Turn on ``Keep my email addresses private`` (If you want to use `no-reply`, if not, just turn it off).  
+Also choosing right email when logged in GitHub Desktop.  
+Or you can edit the email in existing key.
+* Open Git Bash.
+* Use the following command:
+```
+gpg --list-secret-keys --keyid-format=long
+```
+* Choosing the existing key (Eg. `xxxxxxxx`).
+* Using following command:
+```
+gpg --edit-key xxxxxxxx
+```
+```
+gpg> adduid
+```
+* Following the prompts:
+  * `Real Name`.
+  * `Email address`.
+  * `Comment`.
+  * `Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit?`.
+* You can modify your entries by choosing `N`, `C`, or `E`.
+* Enter `O` to confirm your selections.
+* Enter your key's passphrase.
+* Using this to save:
+```
+gpg> save
+```
+
+### P.S.2. About commit signature verification.
+
+If you want GitHub to check the cryptographically verifiable commit, go to `Settings` then `SSH and GPG keys` then `Vigilant mode` and check `Flag unsigned commits as unverified`.  
+It will display status for commits.
+* Default statuses.
+  * `Verified`: 	The commit is signed and the signature was successfully verified.
+  * `Unverified`: The commit is signed but the signature could not be verified.
+  * `No verification status`: The commit is not signed.
+* Statuses with vigilant mode enabled.
+  * `Verified`: The commit is signed, the signature was successfully verified, and the committer is the only author who has enabled vigilant mode.
+  * `Partially verified`: The commit is signed, and the signature was successfully verified, but the commit has an author who: a) is not the committer and b) has enabled vigilant mode. In this case, the commit signature doesn't guarantee the consent of the author, so the commit is only partially verified.
+  * `Unverified`: Any of the following is true: `The commit is signed but the signature could not be verified.`, `The commit is not signed and the committer has enabled vigilant mode.`, `The commit is not signed and an author has enabled vigilant mode.`.
+
+### P.S.3. About sign commits and tags.
+* About commits
+```
+git commit -S -m "YOUR_COMMIT_MESSAGE"
+```
+```
+git push
+```
+* About tags
+```
+git tag -s MYTAG
+```
+```
+git tag -v MYTAG
+```
+This is the end of P.S. guide.
