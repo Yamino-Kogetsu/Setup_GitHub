@@ -80,4 +80,38 @@ gpg --armor --export xxxxxxxx
 * In the `Key` field, paste the GPG key you copied when you [generated your GPG key](#3-generate-a-new-gpg-key).
 * Click `Add GPG key`.
 * If prompted, authenticate to your GitHub account to confirm the action.
-* 
+* Then go to [5. Tell Git about your signing key.](#5-tell-git-about-your-signing-key)
+
+### 5. Tell Git about your signing key.
+
+* Open Git Bash.
+* Using the following command:
+```
+git config --global --unset gpg.format
+```
+To unset the default GPG using in Git Bash.
+* Next using this command to get again the GPG key:
+```
+gpg --list-secret-keys --keyid-format=long
+```
+And get the long form of the key ID you'd like to use.  
+* Using this command to set global key using in commit.
+```
+git config --global user.signingkey xxxxxxxx
+```
+* Also, using these commands to sign all commits and tags by default:
+```
+git config --global commit.gpgsign true
+```  
+```
+git config --global tag.gpgSign true
+```
+* Next, please using this command to export the key to a file:
+```
+gpg --export-secret-keys --armor xxxxxxxx > private-key.asc
+```
+* Then, open `Kleopatra`, in `Kleopatra` please add the private-key.asc (Can add by drop in the file, please check that the `Status` is `certified`)
+* After that, set the GPG program using gpg4win:
+```
+
+```
