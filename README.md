@@ -95,7 +95,7 @@ To unset the default GPG using in Git Bash.
 gpg --list-secret-keys --keyid-format=long
 ```
 And get the long form of the key ID you'd like to use.  
-* Using this command to set global key using in commit.
+* Using this command to set global key using in commit:
 ```
 git config --global user.signingkey xxxxxxxx
 ```
@@ -113,5 +113,74 @@ gpg --export-secret-keys --armor xxxxxxxx > private-key.asc
 * Then, open `Kleopatra`, in `Kleopatra` please add the private-key.asc (Can add by drop in the file, please check that the `Status` is `certified`)
 * After that, set the GPG program using gpg4win:
 ```
-
+git config --global gpg.program "C:/Program Files (x86)/GnuPG/bin/gpg.exe"
 ```
+* Go to [6. Add tasks to Task Scheduler.](#6-add-tasks-to-task-scheduler)
+
+### 6. Add tasks to Task Scheduler.
+
+* __Keyboxd.__
+  * Open Task Scheduler.
+  * Click `Create Task`.
+    * `General Tab`.
+      * `Name`: `Start Keyboxd`.
+      * Check `Run only when user is logged on`.
+      * Check `Run with highest privileges`.
+    * `Triggers Tab`.
+      * Click `New`.
+      * `Begin the task`: `At log on` or `At startup`.
+      * Click `OK`.
+    * `Actions Tab`.
+      * Click `New`.
+      * `Action`: `Start a program`.
+      * `Program/script`: `gpgconf`.
+      * `Add arguments (optional)`: `--launch keyboxd`.
+      * Click `OK`.
+    * `Conditions Tab`.
+      * Uncheck `Start the task only if the computer is idle for:`.
+      * Uncheck `Start the task only if the computer is on AC power`.
+      * Uncheck `Wake the computer to run this task`.
+      * Uncheck `Start only if the following network connection is available:`.
+    * `Settings Tab`.
+      * Check `Allow task to be run on demand`.
+      * Uncheck `Run task as soon as possible after a scheduled start is missed`.
+      * Check `If the task fails, restart every`: `1 minute`. And `Attempt to restart up to`: `3 times`.
+      * Check `Stop the task if it runs longer than`: `3 days`.
+      * Check `If the running task does not end when requested, force it to stop`.
+      * Uncheck `If the task is not scheduled to run again, delete it after:`.
+      * `If the task is already running, then the following rule applies`: `Do not start a new instance`.
+  * Click `OK`.
+
+* __GPG-Agent.__
+    * Open Task Scheduler.
+    * Click `Create Task`.
+        * `General Tab`.
+            * `Name`: `Start GPG-Agent`.
+            * Check `Run only when user is logged on`.
+            * Check `Run with highest privileges`.
+        * `Triggers Tab`.
+            * Click `New`.
+            * `Begin the task`: `At log on` or `At startup`.
+            * Click `OK`.
+        * `Actions Tab`.
+            * Click `New`.
+            * `Action`: `Start a program`.
+            * `Program/script`: `gpgconf`.
+            * `Add arguments (optional)`: `--launch gpg-agent`.
+            * Click `OK`.
+        * `Conditions Tab`.
+            * Uncheck `Start the task only if the computer is idle for:`.
+            * Uncheck `Start the task only if the computer is on AC power`.
+            * Uncheck `Wake the computer to run this task`.
+            * Uncheck `Start only if the following network connection is available:`.
+        * `Settings Tab`.
+            * Check `Allow task to be run on demand`.
+            * Uncheck `Run task as soon as possible after a scheduled start is missed`.
+            * Check `If the task fails, restart every`: `1 minute`. And `Attempt to restart up to`: `3 times`.
+            * Check `Stop the task if it runs longer than`: `3 days`.
+            * Check `If the running task does not end when requested, force it to stop`.
+            * Uncheck `If the task is not scheduled to run again, delete it after:`.
+            * `If the task is already running, then the following rule applies`: `Do not start a new instance`.
+    * Click `OK`.  
+
+So this is the end of the guide.
