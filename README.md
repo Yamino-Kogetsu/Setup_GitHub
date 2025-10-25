@@ -36,14 +36,14 @@ gpg: directory '/c/Users/<YourUserName>/.gnupg' created
 ```
 This is normal.  
 Cause the first time you running Git Bash, it will create a folder.  
-If the output show existing keys like `xxxxxxxx`, running this command to export it:
+* If the output show existing keys like `xxxxxxxx`, running this command to export it:
 ```
 gpg --armor --export xxxxxxxx
 ```
 With `xxxxxxxx` is the key.  
-Please copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.  
-Then go to [4. Add a GPG key to your GitHub account.](#4-add-a-gpg-key-to-your-github-account)  
-If the output show nothing, go to [3. Generate a new GPG key.](#3-generate-a-new-gpg-key)
+* Please copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.  
+* Then go to [4. Add a GPG key to your GitHub account.](#4-add-a-gpg-key-to-your-github-account)  
+* If the output show nothing, go to [3. Generate a new GPG key.](#3-generate-a-new-gpg-key)
 
 ### 3. Generate a new GPG key.
 
@@ -72,3 +72,12 @@ gpg --armor --export xxxxxxxx
 * Then go to [4. Add a GPG key to your GitHub account.](#4-add-a-gpg-key-to-your-github-account)
 
 ### 4. Add a GPG key to your GitHub account.
+
+* In the upper-right corner of any page on GitHub, click your profile picture, then click `Settings`.
+* In the `Access` section of the sidebar, click `SSH and GPG keys`.
+* Next to the `GPG keys` header, click `New GPG key`.
+* In the `Title` field, type a name for your GPG key (Should be your name's device).
+* In the `Key` field, paste the GPG key you copied when you [generated your GPG key](#3-generate-a-new-gpg-key).
+* Click `Add GPG key`.
+* If prompted, authenticate to your GitHub account to confirm the action.
+* 
